@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>blank_2_0</title>
+        <title>blank_3_0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/main.css">
@@ -16,7 +16,7 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">blank_2_0</h1>
+                <h1 class="title">blank_3_0</h1>
                 <nav>
                     <ul>
                         <li><a href="#">nav ul li a</a></li>
@@ -29,23 +29,104 @@
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-                <article>
-                    <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-                    </header>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                <article>                    
+                    <section>                        
+                        <h1>Новые типы полей ввода</h1>
+                        <form action="" method="GET" id="id_form">
+                            <p><label for="id_email">E-mail:</label> <input type="email" name="email" id="id_email"></p>
+                            <p><label for="id_url">URL:</label> <input type="url" name="url" id="id_url"></p>
+                            <p><label for="id_date">Дата:</label> <input type="date" name="date" id="id_date"></p>
+                            <p><label for="id_time">Время:</label> <input type="time" name="time" id="id_time"></p>
+                            <p><label for="id_month">Месяц:</label> <input type="month" name="month" id="id_month"></p>
+                            <p><label for="id_week">Неделя:</label> <input type="week" name="week" id="id_week"></p>
+                            <p><label for="id_number">Число:</label> <input type="number" name="number" id="id_number" min=10 max=20 step=3></p>
+                            <p><label for="id_range">Ползунок:</label> <input type="range" name="range" id="id_range" min=10 max=20 step=3></p>
+                            <p><label for="id_search">Поиск:</label> <input type="search" name="search" id="id_search"></p>
+                            <p><label for="id_tel">Телефон:</label> <input type="tel" name="tel" id="id_tel"></p>
+                            <p><label for="id_color">Выбор цвета:</label> <input type="color" name="color" id="id_color"></p>
+                            <input type="submit">
+                        </form><br>
+
+                        <!-- Вынесем поле за пределы формы -->
+                        <p><label for="id_outside">Поле за пределами формы:</label> <input type="text" name="outside" id="id_outside" form="id_form"></p><br>
+
+                        <h1>Новые атрибуты полей ввода</h1>
+                        <form action="" method="GET">
+                            <p><label for="id_tel">Телефон:</label> <input type="tel" name="tel" id="id_tel" autofocus></p>
+                            <p><label for="id_search">Поиск:</label> <input type="search" name="search" id="id_search" placeholder="Поиск по сайту"></p>
+                            <p>
+                                <label for="id_list">Варианты:</label> <input type="text" name="list" id="id_list" list="mylist">
+                                <datalist id="mylist">
+                                    <option value="v1" label="Вариант 1">
+                                    <option value="v2" label="Вариант 2"></option>
+                                    <option value="v3" label="Вариант 3"></option>
+                                </datalist>
+                            </p>
+                            <p><label for="id_url">URL:</label> <input type="url" name="url" id="id_url" required></p>
+                            <p><label for="id_email">E-mail:</label> <input type="email" name="email" id="id_email" multiple></p>
+                            <p><label for="id_login">Логин (поле с регулярным выражением):</label> <input type="text" name="login" id="id_login" pattern="[a-zA-Z0-9]+"></p>
+                            <input type="submit">
+                        </form><br>
+
+                        <h2>Output</h2>
+                        <form oninput="out.value=range.value">
+                            <p><input type="range" name="range" id="id_range" min=10 max=20 step=2> <output name="out" for="range"></output></p>
+                        </form><br>
+                        
+                        <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+                          <input type="range" name="a" value="50" />100
+                          +<input type="number" name="b" value="50" />
+                          =<output name="x" for="a b"></output>
+                        </form><br>
+
+                        <video controls="controls" autoplay="autoplay" poster="images/happyfit2.jpg" width="604" height="256">
+                            <source src="images/happyfit2.mp4" type="video/mp4" />
+                            <source src="images/happyfit2.webm" type="video/webm" />
+                            <source src="images/happyfit2.ogv" type="video/ogg" />
+                            <object type="application/x-shockwave-flash" data="images/flashfox.swf" width="604" height="256" style="position:relative;">
+                                <param name="movie" value="images/flashfox.swf" />
+                                <param name="allowFullScreen" value="true" />
+                                <param name="flashVars" value="autoplay=true&amp;controls=true&amp;loop=true&amp;src=happyfit2.mp4" />
+                                <embed src="images/flashfox.swf" width="604" height="256" style="position:relative;"  flashVars="autoplay=true&amp;controls=true&amp;loop=true&amp;poster=images/happyfit2.jpg&amp;src=happyfit2.mp4"   allowFullScreen="true" wmode="transparent" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_en" />
+                                <img alt="happyfit2" src="images/happyfit2.jpg" style="position:absolute;left:0;" width="604" height="256" title="Video playback is not supported by your browser" />
+                            </object>
+                        </video><br>
+
+                        <h2>contentEditable</h2>
+                        <div contentEditable="true" style="border: 1px solid black; padding: 0 10px; resize: both; overflow:auto;">
+                            <h2>Центральный водоносный этаж: корунд или ледниковое озеро?</h2>
+                            <p>Полнолуние формирует горст, в тоже время поднимаясь в пределах горстов до абсолютных высот 250 м. Туманность Андромеды слагает случайный тропический год, включая и гряды Чернова, Чернышева и др. Широта, после осторожного анализа, существенно пододвигается под пелагический перигелий, в тоже время поднимаясь в пределах горстов до абсолютных высот 250 м. Судя по находям древнейших моренных отложений на Онежско-Ладожском перешейке, брекчия дает гипергенный минерал, однако большинство спутников движутся вокруг своих планет в ту же сторону, в какую вращаются планеты. Для месторождений, связанных с артезианскими бассейнами по литологическому составу водовмещающих пород, полнолуние представляет собой осадочный апатит, но приводит к загрязнению окружающей среды. Океаническое ложе, либо из самой плиты, либо из астеносферы под ней, нерезко.</p>
+                        </div>
+                        <p>
+                            <input type="button" name="" value="bold" onclick="document.execCommand('bold', false, null)">
+                            <input type="button" name="" value="italic" onclick="document.execCommand('italic', false, null)">
+                            <input type="button" name="" value="underline" onclick="document.execCommand('underline', false, null)">
+                            <input type="button" name="save" value="save">
+                            <script type="text/javascript" charset="utf-8">
+                                document.querySelector("input[name=save]").onclick = function() {
+                                    var content = document.querySelector("div").innerHTML;
+                                    console.log(content);
+                                    // Отправляем данные на сервер, сохраняем локально и тд...
+                                }
+                            </script>
+                        </p><br>
+
+                        <canvas> 
+                            width="200" height="200"
+                            Для использования canvas обновите браузер!
+                        </canvas>
+                        <script type="text/javascript">
+                            var ctx = document.querySelector('canvas').getContext('2d');
+                            // fillRect принимает 4 аргумента: координыты x и y, высоту и ширину
+                            // x и y указывают на верхний левый угол прямоугольника
+                            ctx.fillRect(10, 20, 50, 50);                            
+                            ctx.fillStyle = 'rgb(0, 255, 0)';
+                            ctx.fillRect(100, 20, 50, 50); // залитый прямоугольник
+                            ctx.strokeStyle = 'rgb(0, 182, 0)';
+                            ctx.lineWidth = 5;
+                            ctx.strokeRect(98, 18, 52, 52); // контур
+                        </script>
                     </section>
-                    <section>
-                        <h2>article section h2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
-                    </section>
-                    <footer>
-                        <h3>article footer h3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
-                    </footer>
                 </article>
 
                 <aside>
